@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #CAEB66;
+  /* main light green */
+  --color-primary-content: #8FA748;
+  /* little darker green of main for hover */
+  --color-secondary: #03373D;
+  --color-secondary-content: #03373D;
+  --color-neutral: #0B0B0B;
+  --color-neutral-content: #0B0B0B;
+  /* black */
+  --color-accent: #606060;
+  /* light gray for paragraph */
+  --color-accent-content: #606060;
+  
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+   --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+
+}
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  --color-primary: #CAEB66;
+  /* main light green */
+  --color-primary-content: #8FA748;
+  /* little darker green of main for hover */
+   --color-secondary: #03373D;
+   --color-secondary-content: white;
+  --color-neutral: #0B0B0B;
+  --color-neutral-content: white;
+  /* black */
+    --color-accent: #606060;
+  /* light gray for paragraph */
+  --color-accent-content: white;
+
+   --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+   --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+}
+
+/* common */
+body{
+  @apply bg-gray-100 box-border;
+}
+
+h1{
+  @apply text-3xl md:text-5xl font-bold
+}
+h2{
+  @apply text-2xl md:text-3xl font-bold
+}
+h3{
+  @apply text-lg md:text-xl font-bold
+}
+
+p{
+  @apply text-base
+}
+
+.btn1{
+  @apply px-3 py-1 sm:px-5 sm:py-1.5 rounded-xl border border-primary hover:border-primary-content bg-primary hover:bg-primary-content text-neutral font-semibold text-lg whitespace-nowrap
+}
+.btn2{
+  @apply px-3 py-1 sm:px-5 sm:py-1.5  rounded-xl border hover:bg-primary hover:text-neutral font-semibold text-lg whitespace-nowrap text-accent-content 
+}
+
+/* elemental */
+nav a  li{
+  @apply font-semibold px-2 py-1
+}
+
+nav a.active li{
+  @apply bg-primary rounded-3xl px-2 py-1
+}
+
+nav a li:hover {
+  @apply bg-primary rounded-3xl px-2 py-1
+}
+
+/* footer */
+footer nav a{
+  @apply decoration-0;
+}
+
+footer nav a:hover{
+  @apply text-gray-400 cursor-pointer;
+}
