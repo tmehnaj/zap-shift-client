@@ -7,6 +7,7 @@ import useRole from '../assets/Hooks/useRole';
 import { TbBikeFilled } from "react-icons/tb";
 import { FaTasks } from 'react-icons/fa';
 import { IoCheckmarkDoneCircle } from 'react-icons/io5';
+import logoImg from '../assets/others/logo.png'
 
 
 const DashboardLayout = () => {
@@ -37,6 +38,10 @@ const DashboardLayout = () => {
           {/* Sidebar content here */}
           <ul className="menu w-full grow">
             {/* List item */}
+
+             <li>
+                            <Link to="/"><img src={logoImg} alt="" /></Link>
+                        </li>
             <li>
               <Link to="/" className="is-drawer-close:tooltip is-drawer-close:tooltip-right is-drawer-close:tooltip-info " data-tip="Homepage">
                 {/* Home icon */}
