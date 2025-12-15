@@ -18,50 +18,7 @@ const UsersManagement = () => {
     })
 
 
-    const handleMakeAdmin = user => {
-        const userUpdateInfo = {
-            role: 'admin',
-        }
-        axiosSecure.patch(`/users/${user._id}/role`, userUpdateInfo)
-            .then(res => {
-                if (res.data.modifiedCount) {
-                    refetch();
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${user?.displayName} is now Admin`,
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }
-
-    const handleRemoveAdmin = user => {
-        const userUpdateInfo = {
-            role: 'user',
-        }
-        axiosSecure.patch(`/users/${user._id}/role`, userUpdateInfo)
-            .then(res => {
-                if (res.data.modifiedCount) {
-                    refetch();
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${user?.displayName} is removed from Admin`,
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
-                }
-            })
-            .catch(err => {
-                console.log(err);
-            })
-
-    }
+  
 
 
 
@@ -129,11 +86,11 @@ const UsersManagement = () => {
                             <td>
                                 {user.role === 'admin' ?
                                     <button
-                                        onClick={() => handleRemoveAdmin(user)}
-                                        className='btn bg-red-300'>
+                                        
+                                        className='btn bg-error'>
                                         <FiShieldOff></FiShieldOff>                                  </button> :
                                     <button
-                                        onClick={() => handleMakeAdmin(user)}
+                                        
                                         className='btn bg-green-400'>
                                         <FaUserShield></FaUserShield>
                                     </button>

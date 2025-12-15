@@ -76,7 +76,7 @@ p{
 
 /* elemental */
 nav a  li{
-  @apply font-semibold px-2 py-1
+  @apply font-semibold px-2 py-1 
 }
 
 nav a.active li{
