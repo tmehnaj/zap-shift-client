@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 
 const UsersManagement = () => {
-    const [searchText,setSearchText] = useState('');
+    const [searchText, setSearchText] = useState('');
     const axiosSecure = useAxiosSecure();
 
     const { refetch, data: users = [] } = useQuery({
@@ -18,7 +18,7 @@ const UsersManagement = () => {
     })
 
 
-  
+
 
 
 
@@ -39,8 +39,8 @@ const UsersManagement = () => {
                     </g>
                 </svg>
                 <input
-                onChange={(e)=>setSearchText(e.target.value)}
-                 type="search" required placeholder="Search" />
+                    onChange={(e) => setSearchText(e.target.value)}
+                    type="search" required placeholder="Search" />
             </label>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -81,17 +81,24 @@ const UsersManagement = () => {
                                 {user.email}
                             </td>
                             <td>
-                                {user.role}
+                                 {
+                                    user.role === 'admin' ? <span className='badge-success'>admin</span> 
+                                    : user.role === 'vendor' ? <span className='badge-warning'>vendor</span> 
+                                    : <span className='badge-info'>user</span> 
+                                }
                             </td>
                             <td>
                                 {user.role === 'admin' ?
                                     <button
-                                        
-                                        className='btn bg-error'>
-                                        <FiShieldOff></FiShieldOff>                                  </button> :
+
+                                        className='btn bg-error tooltip tooltip-info tooltip-right'
+                                        data-tip="Remove Admin">
+                                        <FiShieldOff></FiShieldOff> 
+                                        </button> :
                                     <button
-                                        
-                                        className='btn bg-green-400'>
+
+                                        className='btn bg-green-400 tooltip tooltip-info tooltip-right'
+                                        data-tip="Mark as Admin">
                                         <FaUserShield></FaUserShield>
                                     </button>
                                 }
